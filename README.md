@@ -13,7 +13,7 @@ Create the directory structure for each module:
             +-- model.js
             +-- routes.js
 
-The `module.js` exports only the stuff that you want to be exposed 
+The `index.js` exports only the stuff that you want to be exposed 
 to the outside of the module to ensure data encapsulation:
 
         module.exports = {
@@ -22,6 +22,6 @@ to the outside of the module to ensure data encapsulation:
         
 In your `app.js`, import the module and use routes (or other objects) from the module:
  
-        var my_module = require('./my_module/module');
+        var my_module = require('./my_module');
         app.use('/my_module', my_module.routes);
 

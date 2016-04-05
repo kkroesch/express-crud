@@ -17,7 +17,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -26,9 +26,10 @@ mongoose.connect('mongodb://localhost:27017/interactor');
 
 app.use('/', routes);
 
-var beacons = require('./beacons/module');
+var beacons = require('./beacons');
 app.use('/beacons', beacons.routes);
 
+var users = require('./users');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
