@@ -8,7 +8,7 @@ Overview
 Create the directory structure for each module:
 
         my_module
-            +-- module.js
+            +-- index.js
             +-- model.js
             +-- routes.js
 
