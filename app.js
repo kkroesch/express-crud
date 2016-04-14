@@ -21,11 +21,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// DATABASE CONNECTION
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/interactor');
 
+// VIEWS
 app.use('/', routes);
 
+
+// APPLICATION ROUTES
 var people = require('./people');
 app.use('/people', people.routes);
 
@@ -37,7 +41,7 @@ app.use(function (req, res, next) {
     next(err);
 });
 
-// error handlers
+// ERROR HANDLERS
 
 // development error handler
 // will print stacktrace
@@ -60,6 +64,5 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
