@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes');
+const config = require('./config')
 
-var app = express();
+var app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,9 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // DATABASE CONNECTION
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/interactor');
+mongoose.connect(config.mongodb.url);
 
 // VIEWS
+var routes = require('./routes');
 app.use('/', routes);
 
 
