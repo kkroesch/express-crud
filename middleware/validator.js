@@ -19,7 +19,7 @@ function setup(schema) {
         var validate = validator(schema)
 
         if (! validate(req.body))
-            res.status(406).send(validate.errors)
+            res.status(400).send(validate.errors)
         else
             next()
     }

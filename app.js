@@ -30,11 +30,7 @@ var routes = require('./routes');
 app.use('/', routes);
 
 // APPLICATION ROUTES
-var people = require('./people')
-var validator = require('./middleware/validator')('../people/People.json')
-app.use('/people', validator)
-app.use('/people', people.routes);
-
+var people = require('./people')(app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
