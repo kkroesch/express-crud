@@ -29,7 +29,6 @@ mongoose.connect(config.mongodb.url);
 var routes = require('./routes');
 app.use('/', routes);
 
-
 // APPLICATION ROUTES
 var people = require('./people')
 var validator = require('./middleware/validator')('../people/People.json')
