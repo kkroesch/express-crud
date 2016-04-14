@@ -3,10 +3,8 @@ var router = express.Router()
 
 var People = require('./model')
 
-/* GET users listing. */
 router.get('/', (req, res, next) => {
 
-    //res.setHeader('Content-Type', 'application/json');
     People.find((err, people) => {
         if (err) res.send(err)
         res.send(people)
