@@ -29,6 +29,12 @@ mongoose.connect(config.mongodb.url);
 var routes = require('./routes');
 app.use('/', routes);
 
+// MONGO EXPRESS
+var mongo_express = require('mongo-express/lib/middleware')
+var mongo_express_config = require('./mongo_express_config')
+
+app.use('/admin', mongo_express(mongo_express_config))
+
 // APPLICATION ROUTES
 var people = require('./people')(app)
 
