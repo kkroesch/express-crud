@@ -40,7 +40,7 @@ router.delete('/:username', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     People.create(req.body, (person) => {
-        res.send(person)
+        res.status(201).end(person)
     })
 })
 

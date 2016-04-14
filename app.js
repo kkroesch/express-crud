@@ -30,7 +30,9 @@ app.use('/', routes);
 
 
 // APPLICATION ROUTES
-var people = require('./people');
+var people = require('./people')
+var validator = require('./middleware/validator')('../people/People.json')
+app.use('/people', validator)
 app.use('/people', people.routes);
 
 

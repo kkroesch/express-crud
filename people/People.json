@@ -1,0 +1,72 @@
+{
+    "schema": "https://interact.swisscom.com/doc/schema/people#",
+
+    "title": "People Document",
+    "description": "Basis for social interaction.",
+
+    "definitions": {
+        "buddy": {
+            "description": "References to other people in a social graph.",
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" }
+            },
+            "required": [ "id" ]
+        },
+
+        "group": {
+            "description": "People can be member of groups.",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [ "id" ]
+        }
+    },
+
+    "type": "object",
+
+    "properties": {
+        "username": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "last_name": {
+            "type": "string"
+        },
+        "first_name": {
+            "type": "string"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "affiliation": {
+            "type": "string"
+        },
+        "buddies": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/buddy"
+            }
+        },
+        "groups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/group"
+            }
+        },
+        "avatar": {
+            "type": "object"
+        }
+    },
+
+    "required": [ "username" ],
+    "additionalProperties": false
+}

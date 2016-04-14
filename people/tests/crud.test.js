@@ -18,7 +18,7 @@ describe('Testing People CRUD API', () => {
         request(server)
             .post('/people')
             .send(user)
-            .expect(200, done)
+            .expect(201, done)
     })
 
     it('deletes the user', (done) => {
