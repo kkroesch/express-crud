@@ -20,11 +20,15 @@ router.post('/register', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render('login', { user : req.user, next_page: req.next_page })
+    console.log("User wants to " + req.session.next_page)
+    res.render('login', { user : req.user })
 })
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-    res.redirect('/')
+    if (req.session.next_page)
+        res.redirect(req.session.next_page)
+    else
+        res.redirect('/')
 })
 
 router.get('/logout', (req, res) => {

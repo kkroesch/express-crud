@@ -6,8 +6,10 @@
  */
 
 module.exports = (req, res, next) => {
-    if (! req.user)
+    if (! req.user) {
+        req.session.next_page = req.originalUrl
         res.redirect('/auth/login')
+    }
     else
         next()
 }
