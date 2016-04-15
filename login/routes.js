@@ -20,7 +20,6 @@ router.post('/register', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    console.log("User wants to " + req.session.next_page)
     res.render('login', { user : req.user })
 })
 
