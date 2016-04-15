@@ -1,5 +1,6 @@
 
 function setup(app) {
+
     var validator = require('../middleware/validator')('../people/People.json')
     app.use('/people', validator)
 
