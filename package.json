@@ -17,6 +17,9 @@
     "mongo-express": "^0.30.47",
     "mongoose": "^4.4.11",
     "morgan": "~1.6.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
     "serve-favicon": "~2.3.0",
     "should": "^8.3.0"
   },

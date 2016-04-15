@@ -25,7 +25,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 var mongoose = require('mongoose');
 mongoose.connect(config.mongodb.url);
 
-// VIEWS
+// NOTE: The order of including the 'apps' below is important.
+
+// AUTHENTICATION SUBSYSTEM
+require('./login')(app)
+
+// APPLICATION ROUTES
+require('./people')(app)
+
+// GLOBAL VIEWS
 var routes = require('./routes');
 app.use('/', routes);
 
@@ -34,9 +42,6 @@ var mongo_express = require('mongo-express/lib/middleware')
 var mongo_express_config = require('./mongo_express_config')
 
 app.use('/admin', mongo_express(mongo_express_config))
-
-// APPLICATION ROUTES
-var people = require('./people')(app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
