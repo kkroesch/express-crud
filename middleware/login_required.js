@@ -1,16 +1,13 @@
 
 /**
- * Validation middleware for JSON schema.
+ * Login redirect to protect routes.
  *
- * @param schema Must be a file path to a validation schema.
  * @returns {Function} Middleware
  */
-function setup() {
 
-    return function(req, res, next) {
-        req.original_path = req.path
+module.exports = (req, res, next) => {
+    if (! req.user)
         res.redirect('/auth/login')
-    }
+    else
+        next()
 }
-
-module.exports = setup

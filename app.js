@@ -41,6 +41,7 @@ app.use('/', routes);
 var mongo_express = require('mongo-express/lib/middleware')
 var mongo_express_config = require('./mongo_express_config')
 
+app.use('/admin', require('./middleware/login_required'))
 app.use('/admin', mongo_express(mongo_express_config))
 
 // catch 404 and forward to error handler
