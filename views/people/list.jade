@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+    h2 People List
+    ul
+        each person in people
+            li= person.username

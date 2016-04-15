@@ -7,7 +7,14 @@ router.get('/', (req, res, next) => {
 
     People.find((err, people) => {
         if (err) res.send(err)
-        res.send(people)
+        res.format({
+            'application/json': () => {
+                res.send(people)
+            },
+            'text/html': () => {
+                res.render('people/list.jade', {people: people})
+            }
+        })
     })
 })
 
