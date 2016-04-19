@@ -1,6 +1,15 @@
 # express-crud
 Demonstrate the structuring of an Express.JS application
 
+Getting Started
+---------------
+
+Checkout and change into directory. Then execute:
+
+```
+npm install
+npm start
+```
 
 Overview
 --------
